@@ -1,0 +1,147 @@
+/* Premium Theme Variables */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Global Styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Premium Card Styling */
+.premium-card {
+  background: var(--card-background);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.premium-card:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-2px);
+}
+
+/* Form Controls */
+.form-control {
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+/* Note List Styling */
+.list-group-item {
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+  box-shadow: var(--hover-shadow);
+  transform: translateY(-2px);
+}
+
+/* Animation */
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Note Actions */
+.btn-warning, .btn-danger {
+  padding: 6px 12px;
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+.btn-warning:hover, .btn-danger:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Premium Typography */
+h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Date Display */
+.text-muted {
+  font-size: 0.85rem;
+  color: var(--text-secondary) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premium-card {
+    margin: 0 10px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+/* Empty State Styling */
+.list-group-item.text-center {
+  padding: 40px;
+  background: linear-gradient(145deg, #f8f9fa, #ffffff);
+}
+
+/* Textarea Enhancement */
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
