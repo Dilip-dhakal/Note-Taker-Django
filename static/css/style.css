@@ -2,13 +2,14 @@
 
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('../note_app/notes.css');
 
 /* CSS Variables for consistent theming */
 :root {
-    --primary-color: #6366f1;
+    --primary-color: #2c3e50;
     --primary-dark: #4f46e5;
-    --secondary-color: #8b5cf6;
-    --accent-color: #06b6d4;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
     --success-color: #10b981;
     --warning-color: #f59e0b;
     --danger-color: #ef4444;
@@ -42,7 +43,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #2c3e50;
     min-height: 100vh;
     color: var(--gray-800);
     line-height: 1.6;
@@ -57,9 +58,9 @@ body {
 
 /* Enhanced Navbar */
 .navbar {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: #2c3e50 !important;
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: none !important;  /* Remove border */
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
@@ -67,7 +68,7 @@ body {
 .navbar-brand {
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--primary-color) !important;
+    color: #ffffff !important;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -87,7 +88,7 @@ body {
 
 .nav-link {
     font-weight: 500;
-    color: var(--gray-700) !important;
+    color: #ffffff !important;
     padding: 0.75rem 1rem !important;
     border-radius: var(--border-radius);
     transition: var(--transition);
@@ -95,16 +96,37 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--primary-color) !important;
-    background: var(--gray-50);
-    transform: translateY(-1px);
+    color: var(--gray-300) !important;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-link.active {
-    color: var(--primary-color) !important;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+/* Hero Sections */
+.py-5, 
+.features-section.mt-5,
+.hero-section {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white !important;
-    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 1;
+}
+
+/* Force white text in hero sections */
+.py-5 *, 
+.features-section.mt-5 *,
+.hero-section *,
+.display-4.mb-4.gradient-text,
+.py-5 .gradient-text,
+.features-section.mt-5 .gradient-text {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Premium Cards */
@@ -272,6 +294,15 @@ h3 {
 }
 
 /* Premium Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -324,21 +355,20 @@ h3 {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--gray-100);
-    border-radius: 4px;
+  background: var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    border-radius: 4px;
+  background: var(--secondary-color);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  background: var(--primary-color);
 }
 
 /* Loading Animation */
@@ -450,14 +480,6 @@ a:hover {
     background: linear-gradient(135deg, #fef2f2, #fee2e2);
     color: #dc2626;
     border-left: 4px solid #dc2626;
-}
-
-/* Premium Form Enhancements */
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    background: white;
-    transform: translateY(-1px);
 }
 
 /* Enhanced Display Typography */
@@ -620,13 +642,46 @@ a:hover {
 
 /* Hero Section Styles */
 .hero-section {
-    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 3rem 0;
 }
 
-.hero-section .btn-lg {
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+.py-5 {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    position: relative;
+    z-index: 1;
+}
+
+.py-5::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.py-5,
+.py-5 h1,
+.py-5 h2,
+.py-5 h3,
+.py-5 h4,
+.py-5 h5,
+.py-5 p,
+.py-5 div,
+.py-5 span {
+    color: #ffffff !important;
+}
+
+.py-5 a {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+.py-5 a:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* Feature Cards */
@@ -815,4 +870,75 @@ a:hover {
 .py-5 {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color:white
+}
+
+.display-4.mb-4.gradient-text {
+    color: #ffffff !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.features-section.mt-5 {
+    color: #ffffff !important;
+}
+
+.features-section.mt-5 h1,
+.features-section.mt-5 h2,
+.features-section.mt-5 h3,
+.features-section.mt-5 h4,
+.features-section.mt-5 h5,
+.features-section.mt-5 p,
+.features-section.mt-5 div,
+.features-section.mt-5 span {
+    color: #ffffff !important;
+}
+
+.features-section.mt-5 .gradient-text {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Navbar divider --- */
+.nav-divider {
+  height: 1px;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  margin: 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+}
+
+/* Ensure navbar visual consistency */
+.navbar {
+  background: #2c3e50 !important;
+  border-bottom: none !important;
+  z-index: 1000;
+}
+
+/* Make sure hero/feature sections keep white text */
+.py-5 *, .features-section.mt-5 *, .hero-section * {
+  color: #ffffff !important;
+}
+
+/* navbar and divider */
+.navbar {
+  background: #2c3e50 !important;
+  border-bottom: none !important;
+  z-index: 1000;
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+.nav-divider {
+  height: 1px;
+  border: 0;
+  background: rgba(255,255,255,0.12);
+  margin: 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
 }

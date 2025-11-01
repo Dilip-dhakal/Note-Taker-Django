@@ -10,13 +10,14 @@
     <!-- Font Awesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Custom Premium CSS -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}?v=2" rel="stylesheet">
+    <!-- Remove any additional CSS files -->
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">
           <img src="{% static 'images/notes.jpg' %}" alt="Notes Logo" width="40" height="40" class="d-inline-block align-text-top">
@@ -46,6 +47,10 @@
         </div>
       </div>
     </nav>
+
+    <!-- horizontal line after navbar -->
+    <hr class="nav-divider">
+
     {% block content1 %}
     {% endblock content1 %}
     <!-- Main content -->
